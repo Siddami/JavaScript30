@@ -85,11 +85,17 @@
 
     function liveTime(){
       const now = new Date()
-      const seconds = now.getSeconds()
-      const minutes = now.getMinutes()
-      let hours =   now.getHours(12)
+      let seconds = now.getSeconds()
+      seconds < 10 ?seconds = `0${seconds}`: seconds
+
+      let minutes = now.getMinutes()
+      minutes < 10 ?minutes = `0${minutes}`: minutes
+
+      let hours =   now.getHours()
+
       const amPm = hours < 12 ? 'AM': 'PM'
       hours = hours % 12 || 12;
+      hours < 10? hours = "0"+ hours: hours
 
 
       const DisplayTIme = `${hours}:${minutes}:${seconds} ${amPm}`
